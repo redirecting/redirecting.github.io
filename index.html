@@ -62,7 +62,7 @@ updateCounter = function(el, i=5){
 	}else{
 		let a = document.createElement("a");
 		a.setAttribute("href",goto);
-		// a.setAttribute("target","_blank");
+		a.setAttribute("target","_blank");
 		document.body.appendChild(a);
 		document.getElementById('wait').style.opacity=0;
 		document.getElementById('link').removeAttribute("disabled");
