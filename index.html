@@ -1,1 +1,87 @@
-0
+<style>
+*{
+	font-family: arial;
+}
+div{
+	margin: 5px;
+}
+#counter{
+	width: 75px;
+	height: 75px;
+	display: grid;
+	place-items :center;
+	font-weight: bolder;
+	font-size: 200%;
+	border:solid 1px #999;
+
+	border-radius: 50%;
+}
+#link{
+	padding: 10px;
+	background: #aed;
+	border: transparent;
+	font-size: 100%;
+	cursor: pointer;
+}
+#link:hover{
+	background: #bfe;
+}
+#link:disabled{
+	background: #ccc;
+}
+#wait{
+	font-size: 100%;
+
+	transition-duration: 1s;
+}
+.d{
+	background: #ddd;
+}
+.e{
+	background: #bfe;
+}
+</style>
+<div style="display: grid;place-items :center;padding-top: 20vh;">
+	<div id="wait">Please wait</div>
+	<div id="counter" class="d"></div>
+	<div>
+		<button id="link" disabled>open the link</button>
+	</div>
+	<iframe data-aa='999119' src='//ad.a-ads.com/999119?size=120x60' scrolling='no' style='width:120px; height:60px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+
+</div>
+<script>
+var paramGet = location.search.slice(1).split("&").map(e=>e.split("=").map(e=>decodeURIComponent(e))),
+
+counter = document.getElementById('counter'),
+updateCounter = function(el, i=5){
+	el.innerText = i;
+	if(i){
+		setTimeout(()=>updateCounter(el,--i),1000);
+	}else{
+		let a = document.createElement("a");
+		a.setAttribute("href",goto);
+		a.setAttribute("target","_blank");
+		document.body.appendChild(a);
+		document.getElementById('wait').style.opacity=0;
+		document.getElementById('link').removeAttribute("disabled");
+		document.getElementById('link').onclick = function(e){
+			a.click();
+		};
+	}
+
+};
+
+try{
+	window.GET ={};
+	paramGet.map(e=>GET[e[0]]=e[1]);
+	window.goto = atob(GET.v) || "#";
+}catch(e){
+	console.error(e);
+}
+onload = function(){
+	updateCounter(counter);
+}
+
+
+</script>
