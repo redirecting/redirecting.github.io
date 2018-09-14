@@ -76,7 +76,7 @@ updateCounter = function(el, i=5){
 try{
 	window.GET ={};
 	paramGet.map(e=>GET[e[0]]=e[1]);
-	window.goto = atob(GET.v) || "#";
+	window.goto = atob(GET.v).replace(/^(?!https*\:\/\/)/,'\/\/') || "#";
 }catch(e){
 	console.error(e);
 }
