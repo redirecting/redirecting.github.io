@@ -1,0 +1,16 @@
+
+<input type="text" style="width: 300px;max-width: 90%" id="input" onclick="">
+<button onclick="createLink({target:document.getElementById('input')})">CREATE</button>
+<textarea id="output"  onclick="this.select()"  style="width: 90%;" readonly></textarea>
+<br><a href="#" target="_blank" id="output1"></a>
+<script>
+document.getElementById('input').addEventListener('input',
+	window.createLink=function(ev){
+		let link = "https://redirecting.github.io/?v="+encodeURIComponent(btoa(ev.target.value))+"&ver="+(Math.random()*999999|0);
+		document.getElementById('output').value = link;
+		document.getElementById('output1').href = link;
+		document.getElementById('output1').innerText = link;
+	}
+);
+
+</script>
