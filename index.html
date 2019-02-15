@@ -1,5 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Redirecting</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="adbit-site-verification" content="a04a50e3435f6976247fc1368d155681e5df0410681c4b17dd54c66c57ee0437" />
 <style>
+html{
+	background-color: #ffd;
+}
 *{
 	font-family: arial;
 }
@@ -42,6 +50,11 @@ div{
 	background: #bfe;
 }
 </style>
+
+</head>
+<body>
+
+
 <div style="display: grid;place-items :center;padding-top: 20vh;">
 	<div id="wait">Please wait</div>
 	<div id="counter" class="d"></div>
@@ -78,12 +91,23 @@ try{
 	window.GET ={};
 	paramGet.map(e=>GET[e[0]]=e[1]);
 	window.goto = atob(GET.v).replace(/^(?!https*\:\/\/)/,'\/\/') || "#";
+
+	onload = function(){
+		updateCounter(counter);
+	}
+
 }catch(e){
 	console.error(e);
-}
-onload = function(){
-	updateCounter(counter);
+	document.getElementById('wait').innerText = "Dead Link";
+	document.getElementById('wait').style.fontWeight="bold";
+	counter.innerText = "404";
+	document.getElementById('link').style.opacity=0;
+
 }
 
 
 </script>
+
+</body>
+</html>
+
