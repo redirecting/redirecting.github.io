@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Redirecting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, #counter{
+	background-color: #000;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+}
+img{
+	margin: 0;
+	padding: 0;
+}
+#counter{
+	bottom: 150%;
+}
+</style>
+
+</head>
+<body>
+
+<div id="counter">
+<iframe data-aa='999119' src='//ad.a-ads.com/999119?size=120x60' scrolling='no' style='width:120px; height:60px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+
+</div>
+
+<script>
+var paramGet = location.search.slice(1).split("&").map(e=>e.split("=").map(e=>decodeURIComponent(e))),
+
+counter = document.getElementById('counter'),
+image;
+
+try{
+	window.GET ={};
+	paramGet.map(e=>GET[e[0]]=e[1]);
+	window.goto = atob(GET.i).replace(/^(?!https*\:\/\/)/,'\/\/') || "#";
+
+	onload = function(){
+		image = new Image();
+		image.src = goto;
+		// counter.appendChild(image);
+		document.body.appendChild(image);
+		image.onload = res;
+		image.onerror = function(){location = '/'};
+		onresize = res;
+
+
+	}
+
+}catch(e){
+	location = '/';
+}
+
+
+
+function res(){
+	let w = document.body.offsetWidth;
+	let h = document.body.offsetHeight;
+
+	if(image.offsetWidth > image.offsetHeight ){
+		image.style.height = (image.offsetHeight/image.offsetWidth*w) + "px";
+		image.style.width = w + "px";
+	}
+
+	if(image.offsetHeight > h){
+		image.style.width = (image.offsetWidth/image.offsetHeight*h) + "px";
+		image.style.height = h + "px";
+	}
+
+}
+
+</script>
+</body>
+</html>
+
