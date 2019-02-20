@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="adbit-site-verification" content="a04a50e3435f6976247fc1368d155681e5df0410681c4b17dd54c66c57ee0437" />
 <style>
+
 *{
 	font-family: arial;
 }
@@ -46,13 +47,41 @@ div{
 .e{
 	background: #bfe;
 }
+#article{
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #bcefff;
+	display: none;
+	padding: 20px;
+}
+#article h1, #article h3{
+	margin: 2px;
+}
+section{
+	margin: 20px 2px;
+}
 </style>
 
 </head>
 <body>
 
+<article id="article">
+	<h1>Redirecting</h1>
+	<section>
+		A redirect is when a web page is visited at a certain URL, it changes to a different URL. For instance, a person visits "website.com/page-a" in their browser and they are redirected to "website.com/page-b" instead. This is very useful if we want to redirect a certain page to a new location, change the URL structure of a site, remove the "www." portion of the URL, or even redirect users to another website entirely (just to name a few).(<a href="https://css-tricks.com/redirect-web-page/">https://css-tricks.com/redirect-web-page/</a>)
+	</section>
 
-<div style="display: grid;place-items :center;padding-top: 20vh;">
+	<section>
+		<h3>Why I see this page?</h3>
+		Probably you have type the URL wrongly. Then you directed to this page. We predict the page that you will go to.
+	</section>
+
+</article>
+<div id="waitpage" style="display: grid;place-items :center;padding-top: 20vh;">
 	<div id="wait">Please wait</div>
 	<div id="counter" class="d"></div>
 	<div>
@@ -62,11 +91,14 @@ div{
 	<iframe data-aa='999119' src='//ad.a-ads.com/999119?size=120x60' scrolling='no' style='width:120px; height:60px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
 
 </div>
+
+
+
 <script>
 var paramGet = location.search.slice(1).split("&").map(e=>e.split("=").map(e=>decodeURIComponent(e))),
 
 counter = document.getElementById('counter'),
-updateCounter = function(el, i=5){
+updateCounter = function(el, i=3){
 	el.innerText = i;
 	if(i){
 		setTimeout(()=>updateCounter(el,--i),1000);
@@ -87,11 +119,17 @@ updateCounter = function(el, i=5){
 try{
 	window.GET ={};
 	paramGet.map(e=>GET[e[0]]=e[1]);
-	window.goto = atob(GET.v).replace(/^(?!https*\:\/\/)/,'\/\/') || "#";
+	if(GET.v){
+		window.goto = atob(GET.v).replace(/^(?!https*\:\/\/)/,'\/\/') || "#";
 
-	onload = function(){
-		updateCounter(counter);
+		onload = function(){
+			updateCounter(counter);
+		}
+	}else{
+		document.getElementById('article').style.display="inherit";
+		document.getElementById('waitpage').style.display="none";
 	}
+
 
 }catch(e){
 	console.error(e);
@@ -106,4 +144,3 @@ try{
 </script>
 </body>
 </html>
-
