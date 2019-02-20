@@ -47,14 +47,14 @@ try{
 		// counter.appendChild(image);
 		document.body.appendChild(image);
 		image.onload = res;
-		image.onerror = function(){location = '/'};
+		image.onerror = function(){location = '/v=error'};
 		onresize = res;
 
 
 	}
 
 }catch(e){
-	location = '/';
+	location = '/v=error';
 }
 
 
