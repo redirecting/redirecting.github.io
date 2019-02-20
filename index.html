@@ -51,18 +51,17 @@ div{
 	width: 100%;
 	height: 100%;
 	overflow-y: scroll;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	background-color: #bcefff;
 	display: none;
-	padding: 20px;
 }
 #article h1, #article h3{
-	margin: 2px;
+	margin: 10px 20px;
 }
 section{
-	margin: 20px 2px;
+	margin: 20px 20px;
 }
 </style>
 
@@ -127,7 +126,6 @@ try{
 		}
 	}else{
 		document.getElementById('article').style.display="inherit";
-		document.getElementById('waitpage').style.display="none";
 	}
 
 
@@ -144,3 +142,4 @@ try{
 </script>
 </body>
 </html>
+
