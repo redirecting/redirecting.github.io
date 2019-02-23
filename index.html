@@ -78,6 +78,7 @@ section{
 		<h3>Why I see this page?</h3>
 		Probably you have type the URL wrongly. Then you directed to this page. We predict the page that you will go to.
 	</section>
+	<section><br><br><br><br><br><br><br><br><br><br><br><br></section>
 
 </article>
 <div id="waitpage" style="display: grid;place-items :center;padding-top: 20vh;">
@@ -87,7 +88,9 @@ section{
 		<button id="link" disabled>open the link</button>
 	</div>
 	<div>&nbsp;</div>
-	<iframe data-aa='999119' src='//ad.a-ads.com/999119?size=120x60' scrolling='no' style='width:120px; height:60px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+	<div id="aad">
+		<iframe data-aa='999119' src='//ad.a-ads.com/999119?size=120x60' scrolling='no' style='width:120px; height:60px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+	</div>
 
 </div>
 
@@ -127,6 +130,12 @@ try{
 		}
 	}else{
 		document.getElementById('article').style.display="inherit";
+		document.getElementById('aad').style.position="fixed";
+		document.getElementById('aad').style.width="100%";
+		document.getElementById('aad').style.bottom="0";
+		document.getElementById('aad').style.left="0";
+		document.getElementById('aad').style.height="70px";
+		document.getElementById('aad').style.zIndex="2";
 	}
 
 
