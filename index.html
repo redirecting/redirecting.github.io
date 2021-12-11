@@ -124,10 +124,10 @@ try{
 	paramGet.map(e=>GET[e[0]]=e[1]);
 	if(GET.v){
 		window.goto = atob(GET.v).replace(/^(?!https*\:\/\/)/,'\/\/') || "#";
+		window.goto = "http://adf.ly/17491561/banner/https://redirecting.github.io/goto.html?v=" + encodeURIComponent(GET.v);
 
 		onload = function(){
 			updateCounter(counter);
-			(new Image()).src="https://koroshiamu.000webhostapp.com/redirecting-log/log.php?i="+GET.v;
 		}
 	}else{
 		document.getElementById('article').style.display="inherit";
