@@ -4,8 +4,14 @@
   var paramGet = location.search.slice(1).split("&").map(e=>e.split("=").map(e=>decodeURIComponent(e)));
   try{
     window.GET ={};
-  	paramGet.map(e=>GET[e[0]]=e[1]);
+    paramGet.map(e=>GET[e[0]]=e[1]);
     window.goto = atob(GET.v).replace(/^(?!https*\:\/\/)/,'\/\/') || "#";
+    
+    let outfly = window.goto.split("//adf.ly/17491561/");
+    if(outfly.length==2){
+      window.goto = "https://link-to.net/535209/" + Math.random() * 1000 + "/dynamic/?r=" + btoa(encodeURI(outfly[1]));
+    }
+    
     notif.innerHTML = "Redirecting to <a id='link' href='" + goto + "'>" + goto + "</a>";
     document.querySelector("#link").click();
   }catch(e){
