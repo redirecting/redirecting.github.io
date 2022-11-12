@@ -9,7 +9,8 @@
     
     let outfly = window.goto.split("//adf.ly/17491561/");
     if(outfly.length==2){
-      window.goto = "https://link-to.net/535209/" + Math.random() * 1000 + "/dynamic/?r=" + btoa(encodeURI(outfly[1]));
+      // window.goto = "https://link-to.net/535209/" + Math.random() * 1000 + "/dynamic/?r=" + btoa(encodeURI(outfly[1]));
+      window.goto = "https://link-to.net/535209/" + Math.random() * 1000 + "/dynamic/?r=" + btoa(outfly[1]);
     }
     
     notif.innerHTML = "Redirecting to <a id='link' href='" + goto + "'>" + goto + "</a>";
