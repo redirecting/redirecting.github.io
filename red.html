@@ -78,8 +78,10 @@
                 location.href = 'https://cutw.in/vyYNf7jS';
             } catch (err) {
                 var target = localStorage.getItem('l');
-                localStorage.removeItem('l')
-                location.href = target;
+                if (target) {
+                    localStorage.removeItem('l');
+                    location.href = target;
+                }
             }
         }
     </script>
