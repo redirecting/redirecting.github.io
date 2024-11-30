@@ -10,11 +10,13 @@
     let outfly = window.goto.split("//adf.ly/17491561/");
     if(outfly.length==2){
       // window.goto = "https://link-to.net/535209/" + Math.random() * 1000 + "/dynamic/?r=" + btoa(encodeURI(outfly[1]));
-      window.goto = "https://link-to.net/535209/" + Math.random() * 1000 + "/dynamic/?r=" + btoa(outfly[1]);
+      // window.goto = "https://link-to.net/535209/" + Math.random() * 1000 + "/dynamic/?r=" + btoa(outfly[1]);
+      window.goto = outfly[1];
     }
     
     notif.innerHTML = "Redirecting to <a id='link' href='" + goto + "'>" + goto + "</a>";
     document.querySelector("#link").click();
+    window.setTimeout(()=>{window.location="https://www.kongregate.com/games/azpald/paperfish";}, 1000);
   }catch(e){
     notif.innerText = "Dead link";
   }
