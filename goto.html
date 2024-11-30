@@ -14,7 +14,7 @@
       window.goto = outfly[1];
     }
     
-    notif.innerHTML = "Redirecting to <a id='link' href='" + goto + "'>" + goto + "</a>";
+    notif.innerHTML = "Redirecting to <a id='link' target='_blank' href='" + goto + "'>" + goto + "</a>";
     document.querySelector("#link").click();
     window.setTimeout(()=>{window.location="https://www.kongregate.com/games/azpald/paperfish";}, 1000);
   }catch(e){
